@@ -1,0 +1,7 @@
+.idea/
+*.iml
+data/
+utils/
+tests/
+app/settings/*
+

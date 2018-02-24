@@ -3,5 +3,5 @@
 data/
 utils/
 tests/
-app/settings/*
-
+settings/
+db*.py

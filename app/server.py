@@ -30,7 +30,7 @@ __author__ = "salmansamie"
 
 app = Flask(__name__, template_folder='templates')
 
-# Default system internal configurations
+# Default system internal configurations (self-explanatory)
 app.config['SERVER_IP'] = CNFparser.config_parsed()[0]
 app.config['SERVER_PORT'] = CNFparser.config_parsed()[1]
 app.config['UPLOAD_FOLDER'] = CNFparser.config_parsed()[3]
@@ -41,10 +41,10 @@ TIMER_LIST = CNFparser.timer_KeyVal()[1]
 
 
 def mapped_timer(user_timer):
-    linuxTime = int(time.time())                # get linux timestamp and convert float to int
+    linuxTime = int(time.time())                                                # Get linux timestamp and convert float to int
     for key, val in TIMER_KVAL.items():
-        if key == user_timer:
-            return linuxTime + TIMER_KVAL[key]
+        if key == user_timer:                                                   # Checking the
+            return linuxTime + TIMER_KVAL[key]                                  # Create expiry timer: linux + user time
 
 
 # Checks for allowed extensions
@@ -58,34 +58,36 @@ def allowed_file(args):
 @app.route("/", methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        files_list = request.files.getlist('file_href')     # 'file_ref' refers to html name attr
-        user_timer = request.form.get('TIMER')              # get user timer
-        expiry_timer = mapped_timer(user_timer)             # timer set as int
-        print(expiry_timer)     # 1518493207
+        files_list = request.files.getlist('file_href')                         # 'file_ref' refers to html name attr
+        user_timer = request.form.get('TIMER')                                  # Get user timer
+        expiry_timer = mapped_timer(user_timer)                                 # Timer set as int
+        print(expiry_timer)                                                     # Output format: 1518493207
 
-        # The 4 consequtive lines below will create hashed directory
-        UPLOAD_BASE = app.config['UPLOAD_FOLDER']
-        UID = uuid.uuid4().hex                              # 32-bit hashed uuid
-        HASHED_PATH = os.path.join(UPLOAD_BASE + UID)       # Set path to hashed folder
-        os.makedirs(HASHED_PATH)                            # Create hashed folder path
-        print(HASHED_PATH)      # /tmp/nyxStorage/85a2d35cd76d486989eab7385e07d012
+        if isinstance(expiry_timer, int):                                       # Allow int only
+            if expiry_timer in range(1519238051, 1676937599000):                # Expire on: February 20, 2023 11:59:59 PM
 
-        # Recursively input file names securely and save into hashed directory
-        for each in files_list:
-            if each and allowed_file(each.filename):        # .filename is referring to extension
-                filename = secure_filename(each.filename)
-                each.save(os.path.join(HASHED_PATH, filename))      # Save each files to hashed dir
+                # The 4 consequtive lines below will create hashed directory
+                UPLOAD_BASE = app.config['UPLOAD_FOLDER']                       # Upload base is /tmp/nyxStorage
+                UID = uuid.uuid4().hex                                          # 32-bit hashed uuid
+                HASHED_PATH = os.path.join(UPLOAD_BASE + UID)                   # Set path to hashed folder
+                os.makedirs(HASHED_PATH)                                        # Create hashed folder path
+                print(HASHED_PATH)                                              # /tmp/nyxStorage/85a2d35cd76d486989eab7385e07d012
 
-        # Create compressed dir of the hashed dir and remove original dir
-        shutil.make_archive(HASHED_PATH, 'zip', HASHED_PATH)
-        shutil.rmtree(HASHED_PATH, ignore_errors=True)
+                # Recursively input file names securely and save into hashed directory
+                for each in files_list:
+                    if each and allowed_file(each.filename):                    # .filename is referring to extension
+                        filename = secure_filename(each.filename)               # Secure filename function of flask
+                        each.save(os.path.join(HASHED_PATH, filename))          # Save each files to hashed dir
 
-        if isinstance(expiry_timer, int):                           # Allow int only, active until
-            if expiry_timer in range(1519238051, 1676937599000):    # February 20, 2023 11:59:59 PM
+                shutil.make_archive(HASHED_PATH, 'zip', HASHED_PATH)            # Create compressed dir of the hashed dir
+                shutil.rmtree(HASHED_PATH, ignore_errors=True)                  # Remove original .zip dir
+
+                # Calling encryption logic function
                 store_logic(HASHED_PATH, expiry_timer)
-        return redirect(url_for('upload'))
 
-    return render_template('index.html', TIMER=TIMER_LIST)
+                return redirect(url_for('upload'))                              # Finally redirect back to app homepage
+
+    return render_template('index.html', TIMER=TIMER_LIST)                      # This part executes whenever HTTP request is made
 
 
 @app.route('/_get_data/', methods=['POST'])

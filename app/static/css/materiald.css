@@ -1,0 +1,88 @@
+
+.d-layout .d-header .mdl-textfield {
+    padding: 0;
+    margin-top: 41px;
+}
+.d-layout .d-header  {
+    bottom: 19px;
+}
+.d-layout .mdl-layout__header .mdl-layout__drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+}
+.d-drawer {
+    border: none;
+}
+/* iOS Safari specific workaround */
+.d-drawer .mdl-menu__container {
+    z-index: -1;
+}
+.d-drawer .d-navigation {
+    z-index: -2;
+}
+/* END iOS Safari specific workaround */
+.d-drawer .mdl-menu .mdl-menu__item {
+    display: flex;
+    align-items: center;
+}
+.d-drawer-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px;
+    height: 161px;
+}
+.d-avatar-dropdown {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.d-navigation {
+    flex-grow: 1;
+}
+.d-layout .d-navigation .mdl-navigation__link {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+.d-layout .d-navigation .mdl-navigation__link:hover {
+    background-color: #00BCD4;
+    color: #37474F;
+}
+.d-navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 32px;
+}
+.d-cards .mdl-card__title.mdl-card__title {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+.d-cards ul {
+    padding: 0;
+}
+.d-cards h3 {
+    font-size: 1em;
+}
+.d-cards .mdl-card__actions a {
+    color: #00BCD4;
+    text-decoration: none;
+}
+.d-options h3 {
+    margin: 0;
+}
+.d-options ul {
+    margin: 0;
+    list-style-type: none;
+}
+.d-options li {
+    margin: 4px 0;
+}
+.d-options .material-icons {
+    color: rgba(255, 255, 255, 0.89);
+}

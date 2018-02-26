@@ -1,0 +1,17 @@
+
+.d-card-wide.mdl-card {
+    width: 540px;
+    height: 316px;
+}
+.d-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 225px;
+    background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+}
+.d-card-wide {
+    color: #fff;
+}
+.cus-mid{
+    display:inline-block;
+    max-width: 1000px;            /*563px;*/
+}

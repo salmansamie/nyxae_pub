@@ -4,4 +4,6 @@ data/
 utils/
 tests/
 settings/
+config/
+cnfParser.py
 db*.py

@@ -1,0 +1,23 @@
+
+body {
+    background: linear-gradient(to right, #4568dc, #b06ab3);
+    color: #D7D7EF;
+    font-family: 'Lato', sans-serif;
+}
+
+select {
+    background: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.58);
+    font-size: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    width: 196px;
+    padding: 5px 0 10px;
+}
+form {
+    display: inline-block;
+    position: relative;
+}

@@ -1,0 +1,34 @@
+
+.info {
+    font-family: "Courier";
+    font-size: 18px;
+    color: #AAB0C9;
+    float: left;
+    padding-right: 10px;
+}
+
+.info-big {
+    font-family: "Courier";
+    font-size: 32px;
+    font-weight: bold;
+    color: #AAB0C9;
+    float: left;
+    padding-right: 10px;
+}
+
+.fp {
+    font-family: "Courier";
+    font-size: 18px;
+    color: #39028B;
+    float: left;
+}
+
+#fingerprint {
+    font-family: "Courier";
+    font-size: 32px;
+    font-weight: bold;
+    color: #39028B;
+    float: left;
+}
+
+br { clear: both; }

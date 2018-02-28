@@ -27,9 +27,10 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <!--Customized-->
-    <link rel="stylesheet" type="text/css" href="../static/css/cusmid_card.css" charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../static/css/body_select_form.css" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../static/css/materiald.css" charset="utf-8">
+
+    <!--fgp.css-->
+    <link rel="stylesheet" type="text/css" href="../static/css/fgp.css" charset="utf-8">
 
 </head>
 
@@ -38,7 +39,7 @@
 <div class="d-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="d-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Application</span>
+            <span class="mdl-layout-title">Fingerprint</span>
             <div class="mdl-layout-spacer"></div>
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
                 <i class="material-icons">more_vert</i>
@@ -63,7 +64,7 @@
         </header>
 
         <nav class="d-navigation mdl-navigation mdl-color--blue-grey-800">
-            <a class="mdl-navigation__link" href="./"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">backup</i>Application</a>
+            <a class="mdl-navigation__link" href="./index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">backup</i>Application</a>
             <a class="mdl-navigation__link" href="./fgp.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">fingerprint</i>Fingerprint</a>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">details</i>Project Details</a>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">developer_board</i>Architecture</a>
@@ -75,67 +76,60 @@
     </div>
 
     <main class="mdl-layout__content mdl-color--grey-900" style="background: linear-gradient(to right, #4568dc, #b06ab3); color: #D7D7EF; font-family: 'Lato', sans-serif;">
-        <div>
 
             <!--MAIN START-->
-
-            <div class="all-middle" align="middle" style="justify-content: center">
-                <p></p>
-
-                <div class="d-card-wide mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__title ">
-                        <form id="upload_form" action="" method=POST enctype=multipart/form-data>
-                            <input class="cus-mid" id="file" type=file name=file_href multiple="" style="margin: 0 auto; display:block" onchange="GetFileSize()">
-                            <br/>
-                            <br/>
-                            <div style="display: inline-block; width: 200px; padding: 26px;">
-                                <h1 class="mdl-card__title-text cus-mid" style="color:#2e004d;"> <b>Files Upload</b></h1>
-                            </div>
-
-                            <div class="cus-mid" style="display: inline-block">
-                                <select title="Select Timer" name= TIMER style="color: lightseagreen">
-                                    {% for list_element in TIMER %}
-                                        <option value="" selected disabled hidden>Select Timer</option>
-                                        <option value= "{{list_element}}">{{list_element}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </form>
-
-                        <div class="mdl-card__menu">
-                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                                <i class="material-icons">enhanced_encryption</i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        Upload your files here and select a timer for its availability they will be
-                        subsequently encrypted. Then share the returned key below for decryption.
-                    </div>
-
-                    <div class="mdl-card__actions mdl-card--border">
-                        <button id="ret_action" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type=submit form="upload_form">UPLOAD</button>
-                    </div>
-                </div>
-
-                <div class="cus-mid" style="padding-top: 50px; padding-bottom: 30px;">
-                    <div id="response" style="text-align: left;"></div>
-
-                    <div id="fp" style="column-count: 2; column-gap: 30px; column-rule-style: solid; text-align: left; column-rule-width: 2px;"></div>
-                </div>
-
-            </div>
+            <hr/>
+            <div class="info-big" style="margin-left: 30px;">Session Fingerprint:</div><div id="fingerprint" class="fp"></div>
+            <br/>
+            <hr/>
+        <div style="margin-left: 30px;">
+            <br/>
+            <div class="info">Browser:</div><div id="browser" class="fp"></div>
+            <br/>
+            <div class="info">Flash:</div><div id="flash" class="fp"></div>
+            <br/>
+            <div class="info">Canvas:</div><div id="canvas" class="fp"></div>
+            <br/>
+            <div class="info">Connection:</div><div id="connection" class="fp"></div>
+            <br/>
+            <div class="info">Cookie:</div><div id="cookie" class="fp"></div>
+            <br/>
+            <div class="info">Display:</div><div id="display" class="fp"></div>
+            <br/>
+            <div class="info">Font Smoothing:</div><div id="fontsmoothing" class="fp"></div>
+            <br/>
+            <div class="info">Fonts:</div><div id="fonts" class="fp"></div>
+            <br/>
+            <div class="info">Form Fields:</div><div id="formfields" class="fp"></div>
+            <br/>
+            <div class="info">Java:</div><div id="java" class="fp"></div>
+            <br/>
+            <div class="info">Language:</div><div id="language" class="fp"></div>
+            <br/>
+            <div class="info">Silverlight:</div><div id="silverlight" class="fp"></div>
+            <br/>
+            <div class="info">OS:</div><div id="os" class="fp"></div>
+            <br/>
+            <div class="info">Time Zone:</div><div id="timezone" class="fp"></div>
+            <br/>
+            <div class="info">Touch:</div><div id="touch" class="fp"></div>
+            <br/>
+            <div class="info">True Browser:</div><div id="truebrowser" class="fp"></div>
+            <br/>
+            <div class="info">Plug Ins:</div><div id="plugins" class="fp"></div>
+            <br/>
+            <div class="info">User Agent:</div><div id="useragent" class="fp"></div>
 
             <!--MAIN END-->
 
         </div>
     </main>
 </div>
+
 <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="../static/js/show_key.js" charset="utf-8"></script>
-<script src="../static/js/file_formatter.js" charset="utf-8"></script>
+<script src="../static/js/fgrp_logic.js" charset="utf-8"></script>
 
 </body>
 </html>

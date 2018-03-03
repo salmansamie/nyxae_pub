@@ -10,20 +10,6 @@ import shutil
 import time
 
 
-# TODO 1a : Upload multiple files at once and zip into a single folder and store timer
-# TODO 1b : Encrypt the zipped file on the server and
-# TODO 1c : Write Email server to email key to recipient directly from the server
-
-# TODO 2a : Rename the zipped file to a hashed key from /dev/urandom
-# TODO 2b : Map the hashed key to a memory in db
-
-# TODO 3a : Implement multi-threading for headless automation scripts for clearing db
-# TODO 3b : Follow Linux time for file expiry (in seconds) from the server.
-
-# TODO 4  : Setup downloads and auto remove encrypted-zip after download regardless of the timer.
-
-# TODO 5  : A commandline client
-
 
 __author__ = "salmansamie"
 

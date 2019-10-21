@@ -55,6 +55,6 @@ user-agent==0.1.9
 virtualenv==15.1.0
 w3lib==1.17.0
 weblib==0.1.25
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 xlrd==1.0.0
 zope.interface==4.4.2

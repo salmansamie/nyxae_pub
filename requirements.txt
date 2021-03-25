@@ -40,7 +40,7 @@ pyOpenSSL==17.2.0
 PyQt5==5.9.2
 pytils==0.3
 pytz==2017.2
-PyYAML==3.12
+PyYAML==5.4
 queuelib==1.4.2
 requests==2.18.4
 Scrapy==1.4.0

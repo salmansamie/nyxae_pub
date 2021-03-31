@@ -22,7 +22,7 @@ incremental==17.5.0
 itsdangerous==0.24
 Jinja2==2.10
 jsonify==0.5
-lxml==3.8.0
+lxml==4.6.3
 Markdown==2.6.8
 MarkupSafe==1.0
 Naked==0.1.31

@@ -43,7 +43,7 @@ pytz==2017.2
 PyYAML==3.12
 queuelib==1.4.2
 requests==2.18.4
-Scrapy==1.4.0
+Scrapy==1.8.1
 selection==0.0.13
 service-identity==17.0.0
 shellescape==3.4.1

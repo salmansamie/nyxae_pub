@@ -49,7 +49,7 @@ service-identity==17.0.0
 shellescape==3.4.1
 sip==4.19.6
 tensorflow==1.2.1
-Twisted==17.5.0
+Twisted==22.1.0
 urllib3==1.22
 user-agent==0.1.9
 virtualenv==15.1.0
